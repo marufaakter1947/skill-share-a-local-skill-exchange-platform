@@ -4,6 +4,7 @@ import Skills from './Skills';
 import SkillCard from '../Components/SkillCard';
 import useSkills from '../Hooks/useSkills';
 import { NavLink } from 'react-router';
+import TopRatedProviders from '../Components/TopRatedProviders';
 
 const Home = () => {
     const { skills } = useSkills();
@@ -12,7 +13,8 @@ const Home = () => {
         <div>
             <Hero></Hero>
             
-
+<div>
+    
             <div>
                 <h1 className="text-[48px] font-bold text-center mb-4 mt-8 ">
           Popular Skills
@@ -29,10 +31,16 @@ const Home = () => {
         <div className="flex justify-center items-center"></div>
             </div>
              <div className="flex justify-center items-center">
-          <button className="btn text-[16px] font-semibold bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white mt-10  mb-4 ">
-            <NavLink to="/skills">Show All</NavLink>
+          <button className="btn text-[16px] font-semibold bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white mt-4  mb-4 ">
+            <NavLink to="/skills">Show All Skills</NavLink>
           </button>
         </div>
+</div>
+
+<div>
+    <TopRatedProviders></TopRatedProviders>
+</div>
+
         </div>
     );
 };
