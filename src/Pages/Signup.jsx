@@ -58,7 +58,7 @@ const Signup = () => {
                   type="text"
                   name='name'
                   className="input input-bordered w-96 max-w-full "
-                  placeholder="Enter your Name"
+                  placeholder="Enter your Name" required
                 />
               </div>
                 <label className="block text-sm font-medium mb-1">Email</label>
@@ -68,7 +68,7 @@ const Signup = () => {
                   type="email"
                   name='email'
                   className="input input-bordered w-96 max-w-full "
-                  placeholder="Enter your Email"
+                  placeholder="Enter your Email" required
                 />
               </div>
                 <label className="block text-sm font-medium mb-1">Photo-URL</label>
@@ -78,7 +78,7 @@ const Signup = () => {
                   type="text"
                    name='photo'
                   className="input input-bordered w-96 max-w-full "
-                  placeholder="Enter your Photo-URL"
+                  placeholder="Enter your Photo-URL" required
                 />
               </div>
                 <label className="block text-sm font-medium mb-1">Password</label>
@@ -88,7 +88,7 @@ const Signup = () => {
                   type={show ? "text" : "password"}
                   name="password"
                   className="input input-bordered w-96 max-w-full "
-                  placeholder="Enter your Password"
+                  placeholder="Enter your Password" required
                 />
                  <span
                   onClick={() => setShow(!show)}
