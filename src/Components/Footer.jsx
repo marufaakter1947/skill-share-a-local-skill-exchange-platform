@@ -3,9 +3,9 @@ import logoImg from "../assets/Images/logo1.png";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-[linear-gradient(125.07deg,#C5ADC5,#B2B5E0)] text-white p-10">
+    <footer className="footer footer-horizontal footer-center bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white p-10">
       <aside className=" space-y-4">
-        <img className="h-12 w-12" src={logoImg} alt="" />
+        <img className="h-15 w-15" src={logoImg} alt="" />
         <p className="font-bold">
           Skill Share
           <br />

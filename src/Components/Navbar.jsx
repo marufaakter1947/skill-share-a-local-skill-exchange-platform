@@ -6,7 +6,7 @@ import { NavLink } from "react-router";
 const Navbar = () => {
   const activeNavLink = ({ isActive }) => {
     return isActive
-      ? "text-transparent bg-clip-text bg-[linear-gradient(125.07deg,_#632EE3,_#9F62F2)]  underline underline-offset-4 decoration-[#9F62F2] font-semibold"
+      ? "text-transparent bg-clip-text bg-[linear-gradient(125.07deg,#89F336,#458018)]  underline underline-offset-4 decoration-[#458018] font-semibold"
       : "text-[#000000e6]";
   };
   return (
@@ -80,13 +80,13 @@ const Navbar = () => {
       <div className="navbar-end">
         <NavLink
           to="/signup"
-          className="btn  bg-[linear-gradient(125.07deg,#C5ADC5,#B2B5E0)] text-white text-[16px] font-semibold"
+          className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold"
         >
           Signup
         </NavLink>
         <NavLink
           to="/login"
-          className="btn  bg-[linear-gradient(125.07deg,#C5ADC5,#B2B5E0)] text-white text-[16px] font-semibold ml-2"
+          className="btn  bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold ml-2"
         >
           Login
         </NavLink>
