@@ -2,7 +2,7 @@ import React from 'react';
 import useSkills from '../Hooks/useSkills';
 
 const Skills = () => {
-    const { skills, loading } = useSkills();
+    const { skills, } = useSkills();
     return (
         <div>
             {skills.length} skills loaded

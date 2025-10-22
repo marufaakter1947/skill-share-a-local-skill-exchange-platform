@@ -6,6 +6,7 @@ import useSkills from '../Hooks/useSkills';
 import { NavLink } from 'react-router';
 import TopRatedProviders from '../Components/TopRatedProviders';
 import Works from '../Components/Works';
+import JoinUs from '../Components/JoinUs';
 
 const Home = () => {
     const { skills } = useSkills();
@@ -44,6 +45,9 @@ const Home = () => {
 
 <div>
     <Works></Works>
+</div>
+<div>
+    <JoinUs></JoinUs>
 </div>
         </div>
     );
