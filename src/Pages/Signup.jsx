@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -17,9 +18,12 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    const displayName = e.target.name.value;
     const email = e.target.email.value;
+    const photoURL = e.target.photo.value;
     const password = e.target.password.value;
-    // console.log("Sign up function entered",{email,password});
+    // console.log("Sign up function entered",{email,password,name,photo});
+
 
     if (password.length < 6) {
       toast.error("Length must be at least 6 character");
@@ -36,8 +40,16 @@ const Signup = () => {
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        toast.success("Signup Successful");
+      .then((res) => {
+        updateProfile(res.user,{
+            displayName,
+            photoURL,
+        }).then(()=>{
+ toast.success("Signup Successful");
+        }).catch((er)=>{
+            toast.error(er.message);
+        })
+       
       })
       .catch((e) => {
         toast.error(e.message);

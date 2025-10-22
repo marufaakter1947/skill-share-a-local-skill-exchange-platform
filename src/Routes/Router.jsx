@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import RootLayout from "../Layouts/RootLayout";
 import SkillDetails from "../Pages/SkillDetails";
 import Skills from "../Pages/Skills";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/skill/:skillId",
         element: <SkillDetails></SkillDetails>,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword></ForgetPassword>
       },
     ],
   },

@@ -1,7 +1,7 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import React, { useState } from "react";
+import { GoogleAuthProvider,  signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import React, { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link,  useNavigate } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
@@ -10,6 +10,9 @@ const googleProvider = new GoogleAuthProvider();
 const Login = () => {
     const [user,setUser] =useState(null);
   const [show, setShow] = useState(false);
+//   const [email,setEmail] = useState(null);
+const emailRef = useRef(null);
+const navigate = useNavigate();
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -49,6 +52,22 @@ const Login = () => {
         })
   }
 
+
+//   const handleForgetPassword = ()=>{
+// const email = emailRef.current.value;
+// sendPasswordResetEmail(auth,email).then(()=>{
+//     toast.success("Check your email to reset password.")
+// }).catch((e)=>{
+//     toast.error(e.message)
+// })
+//   }
+
+   const handleForgetRedirect = () => {
+    const email = emailRef.current.value;
+    navigate("/forget-password", { state: { email } });
+  };
+//   console.log(email);
+
   return (
     <div className="hero bg-base-200 min-h-screen  ">
       <div className="hero-content flex-col  ">
@@ -73,6 +92,7 @@ const Login = () => {
                   <input
                     type="email"
                     name="email"
+                    ref={emailRef}
                     className="input input-bordered w-96 max-w-full"
                     placeholder="Enter your Email"
                   />
@@ -96,7 +116,7 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="text-blue-400">
-                  <a className="link link-hover">Forgot password?</a>
+                  <button type="button" onClick={handleForgetRedirect} className="link link-hover">Forgot password?</button>
                 </div>
                 <div className="flex justify-center">
                   <button className="btn btn-neutral w-96 max-w-full mt-4">
