@@ -6,6 +6,7 @@ import MyProfile from "../Pages/MyProfile";
 import ErrorPage from "../Pages/ErrorPage";
 import RootLayout from "../Layouts/RootLayout";
 import SkillDetails from "../Pages/SkillDetails";
+import Skills from "../Pages/Skills";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/my-profile",
         element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "/skills",
+        element: <Skills></Skills>
       },
       {
         path: "/skill/:id",

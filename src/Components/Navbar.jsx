@@ -45,17 +45,15 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/skill/:id" className={activeNavLink}>
-              Skill Details
+            <NavLink to="/skills" className={activeNavLink}>
+              Skills
             </NavLink>
           </li>
           </ul>
         </div>
         <NavLink to="/" className="w-12 h-12 cursor-pointer flex items-center rounded-full">
           <img src={logoImg} alt="Navbar logo image" />
-          <span className="text-transparent bg-clip-text  font-bold text-[16px]">
-            HERO.IO
-          </span>
+          
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -71,8 +69,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/skill/:id" className={activeNavLink}>
-              Skill Details
+            <NavLink to="/skills" className={activeNavLink}>
+              Skills
             </NavLink>
           </li>
         </ul>

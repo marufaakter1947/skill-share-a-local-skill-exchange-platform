@@ -69,7 +69,7 @@ const Hero = () => {
                 Swap Skills, Build Connections
               </h1>
               <p className="mb-6">
-                Learn what you love and teach what you’re great at — all in one
+                Learn what you love and teach what you are great at — all in one
                 place.
               </p>
               <button className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)]">
