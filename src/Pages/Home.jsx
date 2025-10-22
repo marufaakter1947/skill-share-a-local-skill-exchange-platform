@@ -5,6 +5,7 @@ import SkillCard from '../Components/SkillCard';
 import useSkills from '../Hooks/useSkills';
 import { NavLink } from 'react-router';
 import TopRatedProviders from '../Components/TopRatedProviders';
+import Works from '../Components/Works';
 
 const Home = () => {
     const { skills } = useSkills();
@@ -41,6 +42,9 @@ const Home = () => {
     <TopRatedProviders></TopRatedProviders>
 </div>
 
+<div>
+    <Works></Works>
+</div>
         </div>
     );
 };
