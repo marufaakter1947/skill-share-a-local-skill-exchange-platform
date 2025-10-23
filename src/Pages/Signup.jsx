@@ -74,6 +74,7 @@ const Signup = () => {
       })
       .catch((e) => {
         toast.error(e.message);
+        setIsSubmitting(false);
       });
   };
 
