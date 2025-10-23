@@ -8,13 +8,11 @@ const Footer = () => {
         <img className="h-15 w-15" src={logoImg} alt="" />
         <p className="font-bold">
           Skill Share
-          <br />
-          A Local Skill Exchange Platform
+          <br />A Local Skill Exchange Platform
         </p>
         <nav>
           <div className="grid grid-flow-col gap-4">
             <a href="https://x.com/" target="_blank">
-            
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -36,7 +34,10 @@ const Footer = () => {
                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
               </svg>
             </a>
-            <a href="https://www.facebook.com/um.me.ahameda.didata" target="_blank">
+            <a
+              href="https://www.facebook.com/um.me.ahameda.didata"
+              target="_blank"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -51,14 +52,16 @@ const Footer = () => {
         </nav>
 
         <div className="space-y-1.5">
-            <h2>Contact</h2>
-            <p>Email: marufaakter1947@gmail.com</p>
-            <p>Phone: 01609656133</p>
-            <p>Address: Laltek,CRP,Savar,Dhaka</p>
+          <h2>Contact</h2>
+          <p>Email: marufaakter1947@gmail.com</p>
+          <p>Phone: 01609656133</p>
+          <p>Address: Laltek,CRP,Savar,Dhaka</p>
         </div>
       </aside>
 
-      <p>Copyright © {new Date().getFullYear()} SkillShare - All right reserved</p>
+      <p>
+        Copyright © {new Date().getFullYear()} SkillShare - All right reserved
+      </p>
     </footer>
   );
 };

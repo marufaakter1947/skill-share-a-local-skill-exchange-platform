@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useSkills from "../Hooks/useSkills";
 import { FaDollarSign, FaStar, FaUsers } from "react-icons/fa";
 import { useParams } from "react-router";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const SkillDetails = () => {
   const { skillId } = useParams();
@@ -107,10 +107,7 @@ const SkillDetails = () => {
           Book Session
         </h3>
         <div className="flex justify-center">
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4 w-full max-w-lg" 
-          >
+          <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-lg">
             <div>
               <label className="block text-gray-700 mb-1">Name</label>
               <input

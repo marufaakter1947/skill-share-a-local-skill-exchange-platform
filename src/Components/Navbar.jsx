@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { FadeLoader } from "react-spinners";
 
 const Navbar = () => {
-  const { user, setUser, signOutFunc,loading } = useContext(AuthContext);
+  const { user, setUser, signOutFunc, loading } = useContext(AuthContext);
   console.log(user);
   const activeNavLink = ({ isActive }) => {
     return isActive
@@ -82,15 +82,13 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          {
-            user && (
-                <li>
-            <NavLink to="/my-profile" className={activeNavLink}>
-              My Profile
-            </NavLink>
-          </li>
-            )
-          }
+          {user && (
+            <li>
+              <NavLink to="/my-profile" className={activeNavLink}>
+                My Profile
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink to="/skills" className={activeNavLink}>
               Skills
@@ -99,7 +97,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {loading ? (<FadeLoader className="mr-9" />) : user ? (
+        {loading ? (
+          <FadeLoader className="mr-9" />
+        ) : user ? (
           <div className="text-center flex justify-center gap-4 items-center">
             <div className="relative group">
               <img

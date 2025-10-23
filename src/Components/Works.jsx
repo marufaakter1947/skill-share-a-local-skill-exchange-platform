@@ -12,8 +12,6 @@ const Works = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
-
-
           <div className="flex flex-col items-center text-center px-4">
             <div className="bg-[#458018] w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">
               1
@@ -25,7 +23,6 @@ const Works = () => {
             </p>
           </div>
 
-
           <div className="flex flex-col items-center text-center px-4">
             <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">
               2
@@ -36,7 +33,6 @@ const Works = () => {
               matching system helps you find the perfect learning partner.
             </p>
           </div>
-
 
           <div className="flex flex-col items-center text-center px-4">
             <div className="bg-[#89F336] w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">

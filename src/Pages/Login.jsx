@@ -1,92 +1,93 @@
-// import { GoogleAuthProvider } from "firebase/auth";
 import React, { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link,  useLocation,  useNavigate } from "react-router";
-// import { auth } from "../Firebase/Firebase.config";
+import { Link, useLocation, useNavigate } from "react-router";
+
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { MoonLoader } from "react-spinners";
 
-
 const Login = () => {
-    // const [user,setUser] =useState(null);
+  // const [user,setUser] =useState(null);
   const [show, setShow] = useState(false);
-//   const [email,setEmail] = useState(null);
-const emailRef = useRef(null);
-const navigate = useNavigate();
+  //   const [email,setEmail] = useState(null);
+  const emailRef = useRef(null);
+  const navigate = useNavigate();
 
-const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading,loading}= useContext(AuthContext);
+  const {
+    signInWithEmailAndPasswordFunc,
+    signInWithPopupFunc,
+    setUser,
+    setLoading,
+    loading,
+  } = useContext(AuthContext);
 
-const location =useLocation();
-const from =location.state || "/";
-// console.log(location);
-const routeNavigate = useNavigate();
- if(loading){
-        return (
-            <div className='h-[80vh] flex items-center justify-center'>
-                <MoonLoader  />
-            </div>
-        )
-    }
-// if(user){
-//     routeNavigate("/");
-// }
+  const location = useLocation();
+  const from = location.state || "/";
+  // console.log(location);
+  const routeNavigate = useNavigate();
+  if (loading) {
+    return (
+      <div className="h-[80vh] flex items-center justify-center">
+        <MoonLoader />
+      </div>
+    );
+  }
+  // if(user){
+  //     routeNavigate("/");
+  // }
 
   const handleSignin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-  const password = e.target.password.value;
+    const password = e.target.password.value;
     //  console.log("Sign in function entered",{email,password});
 
-
     // signInWithEmailAndPassword(auth,email,password)
-    signInWithEmailAndPasswordFunc(email,password)
-     .then((res)=>{
+    signInWithEmailAndPasswordFunc(email, password)
+      .then((res) => {
         setLoading(false);
         setUser(res.user);
-        
-            toast.success("Login Successful");
-            routeNavigate(from);
-        })
-        .catch((e)=>{
-            toast.error(e.message);
-        })
+
+        toast.success("Login Successful");
+        routeNavigate(from);
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
 
-  const handleGoogleSignin = ()=>{
+  const handleGoogleSignin = () => {
     // signInWithPopup(auth,googleProvider)
     signInWithPopupFunc()
-    .then((res)=>{
+      .then((res) => {
         setLoading(false);
         setUser(res.user);
         routeNavigate(from);
-            toast.success("Signin Successful");
-        })
-        .catch((e)=>{
-            toast.error(e.message);
-        })
-  }
+        toast.success("Signin Successful");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
 
-
-   const handleForgetRedirect = () => {
+  const handleForgetRedirect = () => {
     const email = emailRef.current.value;
     navigate("/forget-password", { state: { email } });
   };
-//   console.log(email);
+  //   console.log(email);
 
   return (
     <div className="hero bg-base-200 min-h-screen  ">
       <div className="hero-content flex-col  ">
-       
-       
-             <form onSubmit={handleSignin}>
+        <form onSubmit={handleSignin}>
           <div className="card bg-base-100 w-full max-w-md md:max-w-lg shrink-0 shadow-2xl p-6">
-            <h1 className="text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">Login now!</h1>
+            <h1 className="text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
+              Login now!
+            </h1>
 
-           
-             <div className="card-body flex justify-center">
+            <div className="card-body flex justify-center">
               <fieldset className="space-y-4 w-full">
                 <label className="block text-sm font-medium mb-1">Email</label>
 
@@ -118,7 +119,13 @@ const routeNavigate = useNavigate();
                   </span>
                 </div>
                 <div className="text-blue-400">
-                  <button type="button" onClick={handleForgetRedirect} className="link link-hover">Forgot password?</button>
+                  <button
+                    type="button"
+                    onClick={handleForgetRedirect}
+                    className="link link-hover"
+                  >
+                    Forgot password?
+                  </button>
                 </div>
                 <div className="flex justify-center">
                   <button className="btn btn-neutral w-96 max-w-full mt-4">
@@ -126,12 +133,13 @@ const routeNavigate = useNavigate();
                   </button>
                 </div>
                 <div className="flex justify-center">
-                  <button onClick={handleGoogleSignin} className="btn btn-neutral w-96 max-w-full mt-4">
+                  <button
+                    onClick={handleGoogleSignin}
+                    className="btn btn-neutral w-96 max-w-full mt-4"
+                  >
                     <FcGoogle /> Continue with Google
                   </button>
                 </div>
-
-
 
                 <p className="font-semibold text-center pt-5">
                   Don't Have an account?{" "}
@@ -141,10 +149,8 @@ const routeNavigate = useNavigate();
                 </p>
               </fieldset>
             </div>
-           
           </div>
         </form>
-       
       </div>
     </div>
   );

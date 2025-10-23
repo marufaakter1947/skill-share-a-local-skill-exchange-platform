@@ -1,11 +1,10 @@
-
 import React, { useContext, useState } from "react";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../Context/AuthContext";
 import toast from "react-hot-toast";
 
 const MyProfile = () => {
-  const { user,setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(user?.displayName || "");
   const [photo, setPhoto] = useState(user?.photoURL || "");
@@ -21,8 +20,8 @@ const MyProfile = () => {
       toast.success("Profile updated successfully!");
       setEditing(false);
     } catch (e) {
-    //   console.error(e);
-     toast.error(e.message)
+      //   console.error(e);
+      toast.error(e.message);
     }
   };
 
@@ -36,7 +35,9 @@ const MyProfile = () => {
           alt="User"
           className="w-30 h-30 rounded-full object-contain object-center border-3 shadow-2xl mb-3"
         />
-        <h3 className="text-lg font-semibold">{user?.displayName || "No Name"}</h3>
+        <h3 className="text-lg font-semibold">
+          {user?.displayName || "No Name"}
+        </h3>
         <p className="text-gray-500">{user?.email}</p>
       </div>
 
@@ -75,7 +76,6 @@ const MyProfile = () => {
               type="button"
               className="btn bg-red-400"
               onClick={() => setEditing(false)}
-
             >
               Cancel
             </button>

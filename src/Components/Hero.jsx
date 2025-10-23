@@ -46,7 +46,9 @@ const Hero = () => {
           >
             <div className="hero-overlay bg-black bg-opacity-40"></div>
             <div className="text-center text-white">
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">Share Your Expertise</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                Share Your Expertise
+              </h1>
               <p className="mb-6">
                 Teach what you know and inspire others to grow.
               </p>

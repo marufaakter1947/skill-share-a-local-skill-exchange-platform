@@ -12,7 +12,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
-     path: "/",
+    path: "/",
     element: <RootLayout></RootLayout>,
     errorElement: <ErrorPage></ErrorPage>,
     hydrateFallbackElement: <p>Loading...</p>,
@@ -31,27 +31,30 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-profile",
-        element: <PrivateRoute>
+        element: (
+          <PrivateRoute>
             <MyProfile></MyProfile>
-        </PrivateRoute>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/skills",
-        element: <Skills></Skills>
+        element: <Skills></Skills>,
       },
       {
         path: "/skill/:skillId",
-        element: <PrivateRoute>
+        element: (
+          <PrivateRoute>
             <SkillDetails></SkillDetails>
-        </PrivateRoute>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/forget-password",
-        element: <ForgetPassword></ForgetPassword>
+        element: <ForgetPassword></ForgetPassword>,
       },
     ],
   },
-
 ]);
 
 export default router;
