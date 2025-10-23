@@ -17,7 +17,7 @@ const Login = () => {
 const emailRef = useRef(null);
 const navigate = useNavigate();
 
-const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,user,setUser,setLoading,loading}= useContext(AuthContext);
+const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading,loading}= useContext(AuthContext);
 
 const location =useLocation();
 const from =location.state || "/";

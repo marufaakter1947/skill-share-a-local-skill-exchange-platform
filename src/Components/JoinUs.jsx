@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const JoinUs = () => {
   return (
-    <section className="py-20 bg-[#458018] text-white text-center rounded-2xl">
+    <section className="py-20 bg-[#458018] text-white text-center rounded-2xl mb-2">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 animate__animated animate__bounce animate__infinite animate__slow">
           Ready to Share your skills?
