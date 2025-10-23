@@ -104,7 +104,7 @@ const Navbar = () => {
             <div className="relative group">
               <img
                 src={user?.photoURL || "https://via.placeholder.com/88"}
-                className="h-12 w-12 rounded-full mx-auto cursor-pointer"
+                className="h-12 w-12 rounded-full object-contain object-center cursor-pointer"
                 alt=""
               />
               <span className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
