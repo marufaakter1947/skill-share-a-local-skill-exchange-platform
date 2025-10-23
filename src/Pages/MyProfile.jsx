@@ -5,7 +5,7 @@ import { AuthContext } from "../Context/AuthContext";
 import toast from "react-hot-toast";
 
 const MyProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user,setUser } = useContext(AuthContext);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(user?.displayName || "");
   const [photo, setPhoto] = useState(user?.photoURL || "");
@@ -17,6 +17,7 @@ const MyProfile = () => {
         displayName: name,
         photoURL: photo,
       });
+      setUser({ ...user, displayName: name, photoURL: photo });
       toast.success("Profile updated successfully!");
       setEditing(false);
     } catch (e) {
