@@ -82,8 +82,8 @@ const Login = () => {
     <div className="hero bg-base-200 min-h-screen  ">
       <div className="hero-content flex-col  ">
         <form onSubmit={handleSignin}>
-          <div className="card bg-base-100 w-full max-w-md md:max-w-lg shrink-0 shadow-2xl p-6">
-            <h1 className="text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
+          <div className="card bg-base-100 w-full max-w-sm  sm:max-w-md md:max-w-lg shadow-2xl p-6">
+            <h1 className="text-3xl md:text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
               Login now!
             </h1>
 
@@ -96,7 +96,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     ref={emailRef}
-                    className="input input-bordered w-96 max-w-full"
+                    className="input input-bordered w-full max-w-full"
                     placeholder="Enter your Email"
                   />
                 </div>
@@ -108,12 +108,12 @@ const Login = () => {
                   <input
                     type={show ? "text" : "password"}
                     name="password"
-                    className="input input-bordered w-96 max-w-full"
+                    className="input input-bordered w-full max-w-full"
                     placeholder="Enter your Password"
                   />
                   <span
                     onClick={() => setShow(!show)}
-                    className="absolute right-2 top-[14px] cursor-pointer z-50"
+                    className="absolute right-3 top-[13px] cursor-pointer z-50"
                   >
                     {show ? <FaEye /> : <FaEyeSlash />}
                   </span>
@@ -128,14 +128,14 @@ const Login = () => {
                   </button>
                 </div>
                 <div className="flex justify-center">
-                  <button className="btn btn-neutral w-96 max-w-full mt-4">
+                  <button className="btn btn-neutral w-full max-w-full mt-4">
                     Login
                   </button>
                 </div>
                 <div className="flex justify-center">
                   <button
                     onClick={handleGoogleSignin}
-                    className="btn btn-neutral w-96 max-w-full mt-4"
+                    className="btn btn-neutral w-full max-w-full mt-4"
                   >
                     <FcGoogle /> Continue with Google
                   </button>
