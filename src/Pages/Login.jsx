@@ -16,7 +16,7 @@ const Login = () => {
 const emailRef = useRef(null);
 const navigate = useNavigate();
 
-const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,signOutFunc,user,setUser}= useContext(AuthContext);
+const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser}= useContext(AuthContext);
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -47,17 +47,7 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,signOutFunc,user,setUs
         })
   }
 
-  const handleSignout = ()=>{
-    // signOut(auth)
-    signOutFunc()
-   .then(()=>{
-            toast.success("Signout Successful");
-            setUser(null);
-        })
-        .catch((e)=>{
-            toast.error(e.message);
-        })
-  }
+ 
 
 
 //   const handleForgetPassword = ()=>{
@@ -78,14 +68,8 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,signOutFunc,user,setUs
   return (
     <div className="hero bg-base-200 min-h-screen  ">
       <div className="hero-content flex-col  ">
-       {
-        user ? (
-            <div className="text-center space-y-3">
-                <img src={user?.photoURL || "https://via.placeholder.com/88"} className="h-20 w-20 rounded-full mx-auto" alt="" />
-             <h2 className="text-xl font-semibold">{user?.displayName}</h2>
-             <button onClick={handleSignout} className="btn btn-primary">SignOut</button>
-            </div>
-        ) : (
+       
+       
              <form onSubmit={handleSignin}>
           <div className="card bg-base-100 w-full max-w-md md:max-w-lg shrink-0 shadow-2xl p-6">
             <h1 className="text-5xl font-bold text-center mb-4">Login now!</h1>
@@ -149,8 +133,7 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,signOutFunc,user,setUs
            
           </div>
         </form>
-        )
-       }
+       
       </div>
     </div>
   );

@@ -1,19 +1,30 @@
-
 import { useContext } from "react";
 import logoImg from "../assets/Images/logo.jpg";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
-
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-
-    const result = useContext(AuthContext)
-    console.log(result)
+  const { user, setUser, signOutFunc } = useContext(AuthContext);
+  console.log(user);
   const activeNavLink = ({ isActive }) => {
     return isActive
       ? "text-transparent bg-clip-text bg-[linear-gradient(125.07deg,#89F336,#458018)]  underline underline-offset-4 decoration-[#458018] font-semibold"
       : "text-[#000000e6]";
   };
+
+  const handleSignout = () => {
+    // signOut(auth)
+    signOutFunc()
+      .then(() => {
+        toast.success("Signout Successful");
+        setUser(null);
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm ">
       <div className="navbar-start">
@@ -39,26 +50,28 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-[#000000e6] font-semibold text-[16px]"
           >
-           <li>
-            <NavLink to="/" className={activeNavLink}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-profile" className={activeNavLink}>
-              My Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/skills" className={activeNavLink}>
-              Skills
-            </NavLink>
-          </li>
+            <li>
+              <NavLink to="/" className={activeNavLink}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-profile" className={activeNavLink}>
+                My Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/skills" className={activeNavLink}>
+                Skills
+              </NavLink>
+            </li>
           </ul>
         </div>
-        <NavLink to="/" className="w-12 h-12 cursor-pointer flex items-center rounded-full">
+        <NavLink
+          to="/"
+          className="w-12 h-12 cursor-pointer flex items-center rounded-full"
+        >
           <img src={logoImg} alt="Navbar logo image" />
-          
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -81,18 +94,42 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink
-          to="/signup"
-          className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold"
-        >
-          Signup
-        </NavLink>
-        <NavLink
-          to="/login"
-          className="btn  bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold ml-2"
-        >
-          Login
-        </NavLink>
+        {user ? (
+          <div className="text-center flex justify-center gap-4 items-center">
+            <div className="relative group">
+              <img
+                src={user?.photoURL || "https://via.placeholder.com/88"}
+                className="h-12 w-12 rounded-full mx-auto cursor-pointer"
+                alt=""
+              />
+              <span className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                {user?.displayName}
+              </span>
+            </div>
+
+            <button
+              onClick={handleSignout}
+              className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <NavLink
+              to="/login"
+              className="btn  bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold mr-2"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold"
+            >
+              Signup
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );
