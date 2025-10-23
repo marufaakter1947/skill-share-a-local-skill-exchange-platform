@@ -15,7 +15,7 @@ const SkillDetails = () => {
   }
 
   const skill = skills.find((s) => s.skillId === parseInt(skillId));
-  console.log(skill);
+//   console.log(skill);
 
   if (!skill) {
     return (

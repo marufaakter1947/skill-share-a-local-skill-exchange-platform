@@ -3,7 +3,7 @@ import { FaDollarSign, FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const SkillCard = ({ skill }) => {
-  console.log(skill);
+//   console.log(skill);
   const { image, skillName, price, rating, skillId } = skill;
   return (
     <div className="card bg-base-100   shadow-sm hover:scale-105 transition ease-in-out px-4 py-4">

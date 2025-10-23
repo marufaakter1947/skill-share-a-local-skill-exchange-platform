@@ -7,7 +7,7 @@ import { FadeLoader } from "react-spinners";
 
 const Navbar = () => {
   const { user, setUser, signOutFunc, loading } = useContext(AuthContext);
-  console.log(user);
+//   console.log(user);
   const activeNavLink = ({ isActive }) => {
     return isActive
       ? "text-transparent bg-clip-text bg-[linear-gradient(125.07deg,#89F336,#458018)]  underline underline-offset-4 decoration-[#458018] font-semibold"
