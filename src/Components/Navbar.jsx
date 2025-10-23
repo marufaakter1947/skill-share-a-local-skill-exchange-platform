@@ -82,11 +82,15 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li>
+          {
+            user && (
+                <li>
             <NavLink to="/my-profile" className={activeNavLink}>
               My Profile
             </NavLink>
           </li>
+            )
+          }
           <li>
             <NavLink to="/skills" className={activeNavLink}>
               Skills

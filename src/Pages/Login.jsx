@@ -1,12 +1,13 @@
 // import { GoogleAuthProvider } from "firebase/auth";
 import React, { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link,  useNavigate } from "react-router";
+import { Link,  useLocation,  useNavigate } from "react-router";
 // import { auth } from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { MoonLoader } from "react-spinners";
 
 
 const Login = () => {
@@ -16,7 +17,22 @@ const Login = () => {
 const emailRef = useRef(null);
 const navigate = useNavigate();
 
-const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading}= useContext(AuthContext);
+const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,user,setUser,setLoading,loading}= useContext(AuthContext);
+
+const location =useLocation();
+const from =location.state || "/";
+// console.log(location);
+const routeNavigate = useNavigate();
+ if(loading){
+        return (
+            <div className='h-[80vh] flex items-center justify-center'>
+                <MoonLoader  />
+            </div>
+        )
+    }
+if(user){
+    routeNavigate("/");
+}
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -31,7 +47,8 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading}= u
         setLoading(false);
         setUser(res.user);
         
-            toast.success("Login Successful")
+            toast.success("Login Successful");
+            routeNavigate(from);
         })
         .catch((e)=>{
             toast.error(e.message);
@@ -44,6 +61,7 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading}= u
     .then((res)=>{
         setLoading(false);
         setUser(res.user);
+        routeNavigate(from);
             toast.success("Signin Successful");
         })
         .catch((e)=>{

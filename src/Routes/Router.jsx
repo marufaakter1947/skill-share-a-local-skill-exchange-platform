@@ -8,6 +8,7 @@ import RootLayout from "../Layouts/RootLayout";
 import SkillDetails from "../Pages/SkillDetails";
 import Skills from "../Pages/Skills";
 import ForgetPassword from "../Pages/ForgetPassword";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-profile",
-        element: <MyProfile></MyProfile>,
+        element: <PrivateRoute>
+            <MyProfile></MyProfile>
+        </PrivateRoute>,
       },
       {
         path: "/skills",
@@ -38,7 +41,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/skill/:skillId",
-        element: <SkillDetails></SkillDetails>,
+        element: <PrivateRoute>
+            <SkillDetails></SkillDetails>
+        </PrivateRoute>,
       },
       {
         path: "/forget-password",
