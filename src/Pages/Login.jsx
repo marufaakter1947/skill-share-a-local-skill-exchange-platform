@@ -40,6 +40,7 @@ const Login = () => {
 
   const handleSignin = (e) => {
     e.preventDefault();
+    setLoading(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
     //  console.log("Sign in function entered",{email,password});
@@ -54,6 +55,7 @@ const Login = () => {
         routeNavigate(from);
       })
       .catch((e) => {
+        setLoading(false);
         toast.error(e.message);
       });
   };
@@ -68,6 +70,7 @@ const Login = () => {
         toast.success("Signin Successful");
       })
       .catch((e) => {
+        setLoading(false);
         toast.error(e.message);
       });
   };

@@ -30,7 +30,7 @@ const Hero = () => {
               <p className="mb-6">
                 Join thousands of learners improving their future.
               </p>
-              <button className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)]">
+              <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
                 Get Started
               </button>
             </div>
@@ -52,7 +52,7 @@ const Hero = () => {
               <p className="mb-6">
                 Teach what you know and inspire others to grow.
               </p>
-              <button className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)]">
+              <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
                 Become a Mentor
               </button>
             </div>
@@ -74,7 +74,7 @@ const Hero = () => {
                 Learn what you love and teach what you are great at — all in one
                 place.
               </p>
-              <button className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)]">
+              <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
                 Explore Skills
               </button>
             </div>

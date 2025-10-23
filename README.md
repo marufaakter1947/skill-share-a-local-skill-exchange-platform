@@ -2,7 +2,7 @@ Project name - SkillShare – A Local Skill Exchange Platform
 
 Purpose- This project aim to connect people within the same area to share and trade skills.Where providers and users also offer their own skills and exchange them for other skills,promoting learning,collaboration and community growth.
 
-Live URL - 
+Live URL - https://skill-share-project-by-marufa.netlify.app/
 
 Key Features: Key Features of my projects are-
 1.User Authentication.
