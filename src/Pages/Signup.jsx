@@ -1,8 +1,6 @@
 import {
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -11,10 +9,14 @@ import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 const googleProvider = new GoogleAuthProvider();
 const Signup = () => {
   const [show, setShow] = useState(false);
+
+  const {createUserWithEmailAndPasswordFunc,updateProfileFunc}  = useContext(AuthContext);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -23,6 +25,8 @@ const Signup = () => {
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
     // console.log("Sign up function entered",{email,password,name,photo});
+
+    
 
 
     if (password.length < 6) {
@@ -39,12 +43,11 @@ const Signup = () => {
       return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        updateProfile(res.user,{
-            displayName,
-            photoURL,
-        }).then(()=>{
+    // createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPasswordFunc(email,password)
+      .then(() => {
+         updateProfileFunc(displayName,photoURL)
+        .then(()=>{
  toast.success("Signup Successful");
         }).catch((er)=>{
             toast.error(er.message);

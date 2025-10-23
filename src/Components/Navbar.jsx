@@ -1,9 +1,14 @@
 
+import { useContext } from "react";
 import logoImg from "../assets/Images/logo.jpg";
 import { NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 
 const Navbar = () => {
+
+    const result = useContext(AuthContext)
+    console.log(result)
   const activeNavLink = ({ isActive }) => {
     return isActive
       ? "text-transparent bg-clip-text bg-[linear-gradient(125.07deg,#89F336,#458018)]  underline underline-offset-4 decoration-[#458018] font-semibold"

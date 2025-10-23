@@ -1,18 +1,22 @@
-import { GoogleAuthProvider,  signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+// import { GoogleAuthProvider } from "firebase/auth";
 import React, { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link,  useNavigate } from "react-router";
-import { auth } from "../Firebase/Firebase.config";
+// import { auth } from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
-const googleProvider = new GoogleAuthProvider();
+
 const Login = () => {
-    const [user,setUser] =useState(null);
+    // const [user,setUser] =useState(null);
   const [show, setShow] = useState(false);
 //   const [email,setEmail] = useState(null);
 const emailRef = useRef(null);
 const navigate = useNavigate();
+
+const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,signOutFunc,user,setUser}= useContext(AuthContext);
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -21,7 +25,8 @@ const navigate = useNavigate();
      console.log("Sign in function entered",{email,password});
 
 
-    signInWithEmailAndPassword(auth,email,password)
+    // signInWithEmailAndPassword(auth,email,password)
+    signInWithEmailAndPasswordFunc(email,password)
      .then((res)=>{
         setUser(res.user);
             toast.success("Login Successful")
@@ -32,7 +37,8 @@ const navigate = useNavigate();
   };
 
   const handleGoogleSignin = ()=>{
-    signInWithPopup(auth,googleProvider)
+    // signInWithPopup(auth,googleProvider)
+    signInWithPopupFunc()
     .then(()=>{
             toast.success("Signin Successful");
         })
@@ -42,7 +48,8 @@ const navigate = useNavigate();
   }
 
   const handleSignout = ()=>{
-    signOut(auth)
+    // signOut(auth)
+    signOutFunc()
    .then(()=>{
             toast.success("Signout Successful");
             setUser(null);
