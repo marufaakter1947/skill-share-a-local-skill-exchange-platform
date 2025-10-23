@@ -5,7 +5,7 @@ import {
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
@@ -16,7 +16,9 @@ const googleProvider = new GoogleAuthProvider();
 const Signup = () => {
   const [show, setShow] = useState(false);
 
-  const {createUserWithEmailAndPasswordFunc,updateProfileFunc}  = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const {createUserWithEmailAndPasswordFunc,updateProfileFunc,setLoading}  = useContext(AuthContext);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -48,7 +50,9 @@ const Signup = () => {
       .then(() => {
          updateProfileFunc(displayName,photoURL)
         .then(()=>{
+            setLoading(false);
  toast.success("Signup Successful");
+ navigate("/");
         }).catch((er)=>{
             toast.error(er.message);
         })

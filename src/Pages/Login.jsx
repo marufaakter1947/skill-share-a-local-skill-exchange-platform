@@ -16,19 +16,21 @@ const Login = () => {
 const emailRef = useRef(null);
 const navigate = useNavigate();
 
-const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser}= useContext(AuthContext);
+const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser,setLoading}= useContext(AuthContext);
 
   const handleSignin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
   const password = e.target.password.value;
-     console.log("Sign in function entered",{email,password});
+    //  console.log("Sign in function entered",{email,password});
 
 
     // signInWithEmailAndPassword(auth,email,password)
     signInWithEmailAndPasswordFunc(email,password)
      .then((res)=>{
+        setLoading(false);
         setUser(res.user);
+        
             toast.success("Login Successful")
         })
         .catch((e)=>{
@@ -39,7 +41,9 @@ const {signInWithEmailAndPasswordFunc,signInWithPopupFunc,setUser}= useContext(A
   const handleGoogleSignin = ()=>{
     // signInWithPopup(auth,googleProvider)
     signInWithPopupFunc()
-    .then(()=>{
+    .then((res)=>{
+        setLoading(false);
+        setUser(res.user);
             toast.success("Signin Successful");
         })
         .catch((e)=>{

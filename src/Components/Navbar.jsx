@@ -3,9 +3,10 @@ import logoImg from "../assets/Images/logo.jpg";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import toast from "react-hot-toast";
+import { FadeLoader } from "react-spinners";
 
 const Navbar = () => {
-  const { user, setUser, signOutFunc } = useContext(AuthContext);
+  const { user, setUser, signOutFunc,loading } = useContext(AuthContext);
   console.log(user);
   const activeNavLink = ({ isActive }) => {
     return isActive
@@ -17,7 +18,7 @@ const Navbar = () => {
     // signOut(auth)
     signOutFunc()
       .then(() => {
-        toast.success("Signout Successful");
+        toast.success("Logout Successful");
         setUser(null);
       })
       .catch((e) => {
@@ -94,7 +95,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {user ? (
+        {loading ? (<FadeLoader className="mr-9" />) : user ? (
           <div className="text-center flex justify-center gap-4 items-center">
             <div className="relative group">
               <img
