@@ -1,24 +1,31 @@
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import { Link, useNavigate } from "react-router";
-import { auth } from "../Firebase/Firebase.config";
+import { Link, useLocation, useNavigate } from "react-router";
+
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 
-const googleProvider = new GoogleAuthProvider();
 const Signup = () => {
   const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
 
-  const {createUserWithEmailAndPasswordFunc,updateProfileFunc,setLoading}  = useContext(AuthContext);
+  const {
+    createUserWithEmailAndPasswordFunc,
+    updateProfileFunc,
+    setLoading,
+    signInWithPopupFunc,
+    setUser,
+  } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state || "/";
+  // console.log(location);
+  const routeNavigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -27,9 +34,6 @@ const Signup = () => {
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
     // console.log("Sign up function entered",{email,password,name,photo});
-
-    
-
 
     if (password.length < 6) {
       toast.error("Length must be at least 6 character");
@@ -46,17 +50,17 @@ const Signup = () => {
     }
 
     // createUserWithEmailAndPassword(auth, email, password)
-    createUserWithEmailAndPasswordFunc(email,password)
+    createUserWithEmailAndPasswordFunc(email, password)
       .then(() => {
-         updateProfileFunc(displayName,photoURL)
-        .then(()=>{
+        updateProfileFunc(displayName, photoURL)
+          .then(() => {
             setLoading(false);
- toast.success("Signup Successful");
- navigate("/");
-        }).catch((er)=>{
+            toast.success("Signup Successful");
+            navigate("/");
+          })
+          .catch((er) => {
             toast.error(er.message);
-        })
-       
+          });
       })
       .catch((e) => {
         toast.error(e.message);
@@ -64,8 +68,12 @@ const Signup = () => {
   };
 
   const handleGoogleSignin = () => {
-    signInWithPopup(auth, googleProvider)
-      .then(() => {
+    // signInWithPopup(auth,googleProvider)
+    signInWithPopupFunc()
+      .then((res) => {
+        setLoading(false);
+        setUser(res.user);
+        routeNavigate(from);
         toast.success("Signin Successful");
       })
       .catch((e) => {

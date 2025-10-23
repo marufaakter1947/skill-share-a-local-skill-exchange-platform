@@ -30,9 +30,9 @@ const routeNavigate = useNavigate();
             </div>
         )
     }
-if(user){
-    routeNavigate("/");
-}
+// if(user){
+//     routeNavigate("/");
+// }
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -69,17 +69,6 @@ if(user){
         })
   }
 
- 
-
-
-//   const handleForgetPassword = ()=>{
-// const email = emailRef.current.value;
-// sendPasswordResetEmail(auth,email).then(()=>{
-//     toast.success("Check your email to reset password.")
-// }).catch((e)=>{
-//     toast.error(e.message)
-// })
-//   }
 
    const handleForgetRedirect = () => {
     const email = emailRef.current.value;

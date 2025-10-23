@@ -34,7 +34,7 @@ const MyProfile = () => {
         <img
           src={user?.photoURL || "/default-avatar.png"}
           alt="User"
-          className="w-30 h-30 rounded-full object-contain object-center border mb-3"
+          className="w-30 h-30 rounded-full object-contain object-center border-3 shadow-2xl mb-3"
         />
         <h3 className="text-lg font-semibold">{user?.displayName || "No Name"}</h3>
         <p className="text-gray-500">{user?.email}</p>
