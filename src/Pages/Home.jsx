@@ -18,7 +18,7 @@ const Home = () => {
 <div>
     
             <div>
-                <h1 className="text-[48px] font-bold text-center mb-4 mt-8 ">
+                <h1 className="text-[48px] font-bold text-center mb-4 mt-8 animate__animated animate__bounce animate__infinite animate__slow ">
           Popular Skills
         </h1>
         <p className="text-xl text-[#627382] text-center mb-10">

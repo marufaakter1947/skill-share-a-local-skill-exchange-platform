@@ -94,7 +94,7 @@ if(user){
        
              <form onSubmit={handleSignin}>
           <div className="card bg-base-100 w-full max-w-md md:max-w-lg shrink-0 shadow-2xl p-6">
-            <h1 className="text-5xl font-bold text-center mb-4">Login now!</h1>
+            <h1 className="text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">Login now!</h1>
 
            
              <div className="card-body flex justify-center">

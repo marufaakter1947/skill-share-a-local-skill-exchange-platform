@@ -77,7 +77,7 @@ const Signup = () => {
     <div className="hero bg-base-200 min-h-screen  ">
       <div className="hero-content flex-col  ">
         <div className="card bg-base-100 w-full max-w-md md:max-w-lg shrink-0 shadow-2xl p-6">
-          <h1 className="text-5xl font-bold text-center mb-4">
+          <h1 className="text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
             Join Us Today!
           </h1>
           <form onSubmit={handleSignup}>

@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router';
 import router from './Routes/Router.jsx';
 import { Toaster } from 'react-hot-toast';
 import AuthProvider from './Context/AuthProvider.jsx';
+import "animate.css";
 // import AuthProvider from './Provider/AuthProvider.jsx';
 
 

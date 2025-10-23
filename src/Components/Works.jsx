@@ -4,7 +4,7 @@ const Works = () => {
   return (
     <section className="py-16">
       <div className="max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-blue-900 mb-2">
+        <h2 className="text-3xl font-bold text-blue-900 mb-2 animate__animated animate__bounce animate__infinite animate__slow">
           How SkillShare Works
         </h2>
         <p className="text-gray-500 mb-12">
