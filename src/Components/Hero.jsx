@@ -13,7 +13,7 @@ const Hero = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         loop
-        className="h-[80vh] rounded-2xl overflow-hidden"
+        className="h-[70vh] rounded-2xl overflow-hidden"
       >
         <SwiperSlide>
           <div
