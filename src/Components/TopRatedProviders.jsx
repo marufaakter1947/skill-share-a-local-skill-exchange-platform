@@ -14,7 +14,7 @@ const TopRatedProviders = () => {
   const displayedProviders = showAll ? topProviders : topProviders.slice(0, 3);
 
   return (
-    <section className="py-10 bg-gray-50 rounded-2xl mt-10">
+    <section className="py-10 bg-[#d6f2c0] rounded-2xl mt-10">
       <div className="max-w-2xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-4 flex items-center">
           <span className="text-yellow-500 mr-2">

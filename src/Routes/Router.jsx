@@ -10,6 +10,7 @@ import Skills from "../Pages/Skills";
 import ForgetPassword from "../Pages/ForgetPassword";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import About from "../Pages/About";
+import OfferSkill from "../Pages/Offer-skill";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/offer-skill",
+        element: <OfferSkill></OfferSkill>,
       },
       {
         path: "/skill/:skillId",

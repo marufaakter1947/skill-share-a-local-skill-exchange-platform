@@ -130,7 +130,7 @@ const SkillDetails = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-green-500 text-white px-4 py-2 rounded mb-2 hover:bg-green-600"
+              className="w-full bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white px-4 py-2 rounded mb-2 hover:bg-green-600"
             >
               Submit
             </button>
