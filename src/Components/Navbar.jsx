@@ -73,7 +73,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className={activeNavLink}>
+              <NavLink to="/offer-skill" className={activeNavLink}>
                 Offer Skill
               </NavLink>
             </li>
