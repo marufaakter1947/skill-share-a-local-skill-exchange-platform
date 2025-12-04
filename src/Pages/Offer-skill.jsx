@@ -38,7 +38,7 @@ import { FaLightbulb, FaUser, FaTools, FaClipboard } from "react-icons/fa";
 
 const OfferSkill = () => {
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-100 via-green-50 to-white flex items-center">
+    <div className="min-h-screen  flex items-center">
       <div className="max-w-5xl mx-auto p-8 bg-white rounded-3xl shadow-xl animate-fadeIn">
 
         <h1 className="text-4xl font-bold mb-6 text-center bg-linear-to-r from-green-400 to-green-800 bg-clip-text text-transparent animate-slideDown">

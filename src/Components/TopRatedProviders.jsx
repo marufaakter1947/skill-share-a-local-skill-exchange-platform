@@ -59,7 +59,7 @@ const TopRatedProviders = () => {
         {topProviders.length > 3 && (
           <button
             onClick={() => setShowAll(!showAll)}
-            className="mt-6 w-full bg-yellow-500 text-white font-semibold py-2 rounded hover:bg-yellow-600 transition"
+            className="mt-6 w-full bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white font-semibold py-2 rounded hover:bg-yellow-600 transition"
           >
             {showAll ? "See Less" : "See More"}
           </button>
