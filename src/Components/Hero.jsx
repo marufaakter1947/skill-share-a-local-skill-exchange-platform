@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { NavLink } from "react-router";
 
 const Hero = () => {
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
                 Join thousands of learners improving their future.
               </p>
               <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
-                Get Started
+                <NavLink to="/signup">Get Started</NavLink>
               </button>
             </div>
           </div>
@@ -53,7 +54,7 @@ const Hero = () => {
                 Teach what you know and inspire others to grow.
               </p>
               <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
-                Become a Mentor
+              <NavLink to="/offer-skill">Become a mentor</NavLink>
               </button>
             </div>
           </div>
@@ -75,7 +76,8 @@ const Hero = () => {
                 place.
               </p>
               <button className="btn border-0 bg-[linear-gradient(125.07deg,#89F336,#458018)]">
-                Explore Skills
+              
+                 <NavLink to="/skills">Explore Skills</NavLink>
               </button>
             </div>
           </div>
